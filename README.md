@@ -7,7 +7,7 @@
 
 ### [Exercises-02](https://gisyaliny.github.io/EPPS7v81-Exercises/Exercise02/ADP_Exercise02.pdf)
 
-### [Exercises-03](https://gisyaliny.github.io/EPPS7v81-Exercises/Exercise03/ADP_Exercise03.pdf)
+### [Exercises-03](https://gisyaliny.github.io/EPPS7v81-Exercises/Exercise03/ADP_Exercise03.pdf target="_blank")
 
 * [Ch4-Variable-Types](https://gisyaliny.github.io/EPPS7v81-Exercises/Exercise03/Notebooks/Ch4-Variable-Types.html)
 * [Ch5-Data-Structure](https://gisyaliny.github.io/EPPS7v81-Exercises/Exercise03/Notebooks/Ch5-Data-Structure.html)
