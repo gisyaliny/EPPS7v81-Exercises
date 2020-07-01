@@ -14,4 +14,5 @@
 
 ### [Exercises-04](https://gisyaliny.github.io/EPPS7v81-Exercises/Exercise04/ADP_Exercise04.pdf)
 
-* [6-1-Functions](https://gisyaliny.github.io/EPPS7v81-Exercises/Exercise04/Notebooks/my-functions.html)
+* [6-1-Functions](https://gisyaliny.github.io/EPPS7v81-Exercises/Exercise04/Notebook/my-functions.html)
+* [6-1-2-Loops](https://gisyaliny.github.io/EPPS7v81-Exercises/Exercise04/Notebook/loop-and-list.html)
