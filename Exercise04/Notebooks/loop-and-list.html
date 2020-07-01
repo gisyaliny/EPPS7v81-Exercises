@@ -13474,6 +13474,76 @@ You can see in the examples below ("Loops in Action") that the each type of loop
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="EXERCISE:">EXERCISE:<a class="anchor-link" href="#EXERCISE:">&#182;</a></h4><p>Go through each word in "word_list" (below), and if a word contains the letter "g", put it in a new list. 
+Do this two ways:</p>
+<ul>
+<li>with a for loop</li>
+<li>as a list comprehension.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">word_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;able&quot;</span><span class="p">,</span> <span class="s2">&quot;barrel&quot;</span><span class="p">,</span> <span class="s2">&quot;beef&quot;</span><span class="p">,</span> <span class="s2">&quot;beep&quot;</span><span class="p">,</span> <span class="s2">&quot;biggest&quot;</span><span class="p">,</span> <span class="s2">&quot;bookshelf&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;bottle&quot;</span><span class="p">,</span> <span class="s2">&quot;broken&quot;</span><span class="p">,</span> <span class="s2">&quot;chip&quot;</span><span class="p">,</span> <span class="s2">&quot;chrome&quot;</span><span class="p">,</span> <span class="s2">&quot;clay&quot;</span><span class="p">,</span> <span class="s2">&quot;clip&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;colander&quot;</span><span class="p">,</span> <span class="s2">&quot;collection&quot;</span><span class="p">,</span> <span class="s2">&quot;complicated&quot;</span><span class="p">,</span> <span class="s2">&quot;cousin&quot;</span><span class="p">,</span> <span class="s2">&quot;crispy&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;dance&quot;</span><span class="p">,</span> <span class="s2">&quot;drench&quot;</span><span class="p">,</span> <span class="s2">&quot;drums&quot;</span><span class="p">,</span> <span class="s2">&quot;egg&quot;</span><span class="p">,</span> <span class="s2">&quot;elastic&quot;</span><span class="p">,</span> <span class="s2">&quot;engine&quot;</span><span class="p">,</span> <span class="s2">&quot;felt&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;fighting&quot;</span><span class="p">,</span> <span class="s2">&quot;fine&quot;</span><span class="p">,</span> <span class="s2">&quot;fire&quot;</span><span class="p">,</span> <span class="s2">&quot;folder&quot;</span><span class="p">,</span> <span class="s2">&quot;foolish&quot;</span><span class="p">,</span> <span class="s2">&quot;freezing&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;fried&quot;</span><span class="p">,</span> <span class="s2">&quot;fumble&quot;</span><span class="p">,</span> <span class="s2">&quot;fuzzy&quot;</span><span class="p">,</span> <span class="s2">&quot;gas&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;grief&quot;</span><span class="p">,</span> <span class="s2">&quot;gross&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;grown&quot;</span><span class="p">,</span> <span class="s2">&quot;harmonica&quot;</span><span class="p">,</span> <span class="s2">&quot;hulking&quot;</span><span class="p">,</span> <span class="s2">&quot;hybrid&quot;</span><span class="p">,</span> <span class="s2">&quot;icon&quot;</span><span class="p">,</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span> <span class="s2">&quot;jet&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;kindness&quot;</span><span class="p">,</span> <span class="s2">&quot;lemon&quot;</span><span class="p">,</span> <span class="s2">&quot;lurch&quot;</span><span class="p">,</span> <span class="s2">&quot;melon&quot;</span><span class="p">,</span> <span class="s2">&quot;mulch&quot;</span><span class="p">,</span> <span class="s2">&quot;no&quot;</span><span class="p">,</span> <span class="s2">&quot;obscuring&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;output&quot;</span><span class="p">,</span> <span class="s2">&quot;political&quot;</span><span class="p">,</span> <span class="s2">&quot;quit&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;regal&quot;</span><span class="p">,</span> <span class="s2">&quot;rent&quot;</span><span class="p">,</span> <span class="s2">&quot;retro&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;retry&quot;</span><span class="p">,</span> <span class="s2">&quot;ride&quot;</span><span class="p">,</span> <span class="s2">&quot;sad&quot;</span><span class="p">,</span> <span class="s2">&quot;silly&quot;</span><span class="p">,</span> <span class="s2">&quot;smell&quot;</span><span class="p">,</span> <span class="s2">&quot;spatula&quot;</span><span class="p">,</span> <span class="s2">&quot;steel&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;supermarket&quot;</span><span class="p">,</span> <span class="s2">&quot;tab&quot;</span><span class="p">,</span> <span class="s2">&quot;teeth&quot;</span><span class="p">,</span> <span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="s2">&quot;tree&quot;</span><span class="p">,</span> <span class="s2">&quot;trip&quot;</span><span class="p">,</span> <span class="s2">&quot;tube&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;turtle&quot;</span><span class="p">,</span> <span class="s2">&quot;unlikely&quot;</span><span class="p">,</span> <span class="s2">&quot;varnish&quot;</span><span class="p">,</span> <span class="s2">&quot;vine&quot;</span><span class="p">,</span> <span class="s2">&quot;vulture&quot;</span><span class="p">,</span> <span class="s2">&quot;wind&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;wing&quot;</span><span class="p">,</span> <span class="s2">&quot;wink&quot;</span><span class="p">,</span> <span class="s2">&quot;word&quot;</span><span class="p">,</span> <span class="s2">&quot;written&quot;</span><span class="p">,</span> <span class="s2">&quot;xenon&quot;</span><span class="p">,</span> <span class="s2">&quot;yoghurt&quot;</span><span class="p">,</span> <span class="s2">&quot;zesty&quot;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">g_lst</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_list</span> <span class="k">if</span> <span class="s1">&#39;g&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">ele</span> <span class="ow">in</span> <span class="n">g_lst</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ele</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>biggest egg engine fighting freezing gas green grief gross grown hulking obscuring regal wing yoghurt </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
     </div>
   </div>
 </body>
