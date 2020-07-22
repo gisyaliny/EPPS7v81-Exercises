@@ -1,0 +1,104 @@
+---
+title: "Exercise 7"
+author: "Yalin Yang"
+date: "`r Sys.Date()`"
+output:
+  html_notebook:
+    toc: TRUE
+    toc_float: TRUE
+  word_document:
+    toc: no
+    toc_depth: '3'
+---
+
+# Try out the power of tidyverse
+
+```{r message=FALSE}
+# install.packages("tidyverse")
+library(tidyverse)
+# install.packages("rvest")
+library(rvest)
+```
+
+
+## Import data
+
+Use read.csv() Read and create a new dataset using following API links:
+US county data (https://bit.ly/3gZKFve)[https://bit.ly/3gZKFve]
+US state data (https://bit.ly/30dEWLB)[https://bit.ly/30dEWLB]
+
+```{r}
+url = 'https://bit.ly/3gZKFve'
+df_us_contry <- read.csv(url)
+url1 = 'https://bit.ly/30dEWLB'
+df_us_state = read.csv(url1)
+```
+
+## Visualize
+
+Create simple plots from each dataset
+
+```{r fig.height=6, fig.width=9, message=FALSE}
+df_us_state %>%
+  group_by(state) %>%
+  summarise(total_cases = sum(cases)) %>%
+  arrange(desc(total_cases),state)%>%
+  head(15) %>%
+  ggplot() +  geom_bar(aes(x = total_cases, y = state),stat='identity')
+
+```
+
+```{r fig.height=6, fig.width=9, message=FALSE}
+df_us_contry %>%
+  group_by(date) %>%
+  summarise(total_deaths = sum(deaths)) %>%
+  ggplot(aes(x = as.Date(date), y = total_deaths, group=1)) +
+  geom_line() +scale_x_date(date_labels = "%m-%Y")
+```
+
+## Collect data
+
+Use `rvest()` to scrape the Wikipedia data table List of countries by external debt (https://bit.ly/2DCvmdt)[https://bit.ly/2DCvmdt]
+
+```{r}
+url2 = 'https://bit.ly/2DCvmdt'
+df_wiki <- read_html(url2)
+
+wiki_table <- df_wiki %>%
+  html_nodes(xpath='//*[@id="mw-content-text"]/div/table[1]') %>%
+  html_table()
+
+my_table = wiki_table[[1]]
+names(my_table) <- c("Rank", "Country", "External debt", "Date", "Per capita",'% of GDP')
+head(my_table)
+```
+
+## Clean up data
+
+Make variables ready for analysis
+* Remove unneeded characters
+* Convert variable types
+
+```{r}
+# Remove trailing notes in Date variable
+library(stringr)
+my_table$Date <-  str_split_fixed(my_table$Date, "\\[", n = 2)[, 1]
+my_table$`Per capita` <- gsub(",", "", my_table$`Per capita`)
+head(my_table)
+```
+
+```{r message=FALSE}
+my_table$`External debt` <- gsub(",", "", my_table$`External debt`)
+my_table$`External debt` <-as.numeric(str_replace(my_table$`External debt`,"×10\\^", "e+"))
+my_table$`Per capita` <- as.numeric(my_table$`Per capita`)
+my_table$`% of GDP` <- as.numeric(my_table$`% of GDP`)
+head(my_table)
+```
+```{r message=FALSE}
+my_table$Date <- as.Date(my_table$Date,format = "%d %B %Y")
+head(my_table)
+```
+
+
+
+

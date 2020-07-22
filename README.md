@@ -16,3 +16,7 @@
 
 * [6-1-Functions](https://gisyaliny.github.io/EPPS7v81-Exercises/Exercise04/Notebooks/functions.html)
 * [6-2-Loops](https://gisyaliny.github.io/EPPS7v81-Exercises/Exercise04/Notebooks/loop-and-list.html)
+
+### [Exercises-07](https://gisyaliny.github.io/EPPS7v81-Exercises/Exercise07/ADP_Exercise07.pdf)
+
+* [Answers](https://gisyaliny.github.io/EPPS7v81-Exercises/Exercise07/Exercise7.nb.html)
